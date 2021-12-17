@@ -112,7 +112,7 @@ class Order extends CI_Controller
             $this->Model->insert('orders', $data);
             redirect(base_url('index.php/order/total?nama_pemesan='.$nama));
         }
-    }
+    } 
     public function total()
     {
         $qs = $_SERVER['QUERY_STRING'];
