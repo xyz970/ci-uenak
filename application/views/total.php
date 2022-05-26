@@ -6,7 +6,7 @@ $this->load->view('header');
 				<div class="containers">
 					<h1 align="center">FORM ORDER</h1><br />
 					<div class="container">
-						<form action="<?=base_url('index.php/order/konfirmasi_pembayaran') ?>" method="POST">
+						<form action="<?=base_url('order/konfirmasi_pembayaran') ?>" method="POST">
 							<?php
 							foreach ($pesanan as $total) {
 							?>

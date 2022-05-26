@@ -6,8 +6,12 @@ class Order extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        
         $this->load->model('Model');
         $this->load->helper('url');
+        if($this->session->userdata('status') != "login"){
+			redirect(base_url("login"));
+		}
     }
 
     public function index()
@@ -138,5 +142,18 @@ class Order extends CI_Controller
         $update = $this->Model->update($condition,'orders',$data);
         // var_dump($nama);
         redirect(base_url('index.php/order'));
+    }
+
+    public function data()
+    {
+        $data['pesanan'] = $this->Model->select('orders')->result();
+        $this->load->view('admin/data-order',$data);    
+    }
+
+    public function hapus($id)
+    {
+        $this->Model->delete('orders',array('id'=>$id));
+        $this->session->set_flashdata('delete', 'true');
+        redirect(base_url('/order/data'));
     }
 }

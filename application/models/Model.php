@@ -6,15 +6,19 @@ class Model extends CI_Model{
     {
         $this->db->where($condition);
         $this->db->update($table,$field);
-        
     }
 
-    public function select()
+    public function delete($table,$condition)
     {
-        return $this->db->get('orders');
+        return $this->db->delete($table,$condition);
     }
 
-    public function selectName($condition, $table)
+    public function select($table)
+    {
+        return $this->db->get($table);
+    }
+
+    public function selectName($table,$condition)
     {
        return $this->db->get_where($table,$condition);
     }
