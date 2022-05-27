@@ -49,6 +49,7 @@ class Order extends CI_Controller
                 'catatan' => $catatan
             );
             $this->Model->insert('orders', $data);
+            $this->session->set_flashdata('insert','true');
             redirect(base_url('index.php/order/total?nama_pemesan='.$nama));
         } elseif ($kue == "redvelvet") {
             $total = $jumlah * 190000;
@@ -62,6 +63,7 @@ class Order extends CI_Controller
                 'catatan' => $catatan
             );
             $this->Model->insert('orders', $data);
+            $this->session->set_flashdata('insert','true');
             redirect(base_url('index.php/order/total?nama_pemesan='.$nama));
         } elseif ($kue == "lapislegit") {
             $total = $jumlah * 150000;
@@ -75,6 +77,7 @@ class Order extends CI_Controller
                 'catatan' => $catatan
             );
             $this->Model->insert('orders', $data);
+            $this->session->set_flashdata('insert','true');
             redirect(base_url('index.php/order/total?nama_pemesan='.$nama));
         } elseif ($kue == "bikaambon") {
             $total = $jumlah * 125000;
@@ -88,6 +91,7 @@ class Order extends CI_Controller
                 'catatan' => $catatan
             );
             $this->Model->insert('orders', $data);
+            $this->session->set_flashdata('insert','true');
             redirect(base_url('index.php/order/total?nama_pemesan='.$nama));
         } elseif ($kue == "rotitawar") {
             $total = $jumlah * 40000;
@@ -101,6 +105,7 @@ class Order extends CI_Controller
                 'catatan' => $catatan
             );
             $this->Model->insert('orders', $data);
+            $this->session->set_flashdata('insert','true');
             redirect(base_url('index.php/order/total?nama_pemesan='.$nama));
         } elseif ($kue == "puding") {
             $total = $jumlah * 160000;
@@ -127,7 +132,7 @@ class Order extends CI_Controller
         // $nama = $this->input->get('nama_pemesan',TRUE);
         $condition = array('nama_pemesan' => $nama);
         // $data['pesanan'] = $this->Model->select()->result();
-        $data['pesanan'] = $this->Model->selectName($condition, 'orders')->result();
+        $data['pesanan'] = $this->Model->selectName('orders',$condition )->result();
         $this->load->view('total', $data);
         // var_dump($data);
     }

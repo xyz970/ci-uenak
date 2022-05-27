@@ -53,6 +53,26 @@
     })
   </script>
  <?php }?>
+ <?php
+  if ($this->session->flashdata('insert')) {?>
+  <script>
+    new swal({
+      title: "Berhasil",
+      text: "Data berhasil dimasukkan",
+      icon: "success",
+    })
+  </script>
+ <?php }?>
+ <?php
+  if ($this->session->flashdata('bayar')) {?>
+  <script>
+    new swal({
+      title: "Berhasil",
+      text: "Pesanan berhasil dibayar",
+      icon: "success",
+    })
+  </script>
+ <?php }?>
 <script>
   function hapus(id) {
       let url = "<?php echo base_url('/order/hapus/+id+')?>";
