@@ -171,6 +171,12 @@
                             <textarea class="form-control" rows="3" cols="5" name="catatan" placeholder="Tulis Tambahan.."></textarea>
                           </div>
                         </div>
+                        <div class="">
+                          <label class="" for="catatan">Alamat</label>
+                          <div class="">
+                            <textarea class="form-control" rows="3" cols="5" name="alamat" placeholder="Tulis Alamat.."></textarea>
+                          </div>
+                        </div>
                     </div>
                   </div>
                   <div class="modal-footer justify-content-between">
@@ -201,6 +207,7 @@
                         <th>Jumlah</th>
                         <th>Total</th>
                         <th>Catatan</th>
+                        <th>Alamat</th>
                         <th>Aksi</th>
 
                       </tr>
@@ -258,6 +265,7 @@
                           <td><?= $value->jumlah ?></td>
                           <td><?= $value->total ?></td>
                           <td><?= $value->catatan ?></td>
+                          <td><?= $value->alamat ?></td>
                           <td>
                             <button class="btn btn-danger" onclick="hapus(<?= $value->id ?>)"><i class="fa fa-trash"></i></button>
                             <button data-toggle="modal" data-target="#bayar_pesanan<?=$value->id?>" <?= $value->pembayaran != NULL ? "disabled " : " " ?> class="btn btn-info"><i class="fa fa-money-bill-wave"></i></button>

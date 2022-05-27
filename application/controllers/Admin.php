@@ -20,6 +20,7 @@ class Admin extends CI_Controller{
         $kue = $this->input->post('kue');
         $jumlah = $this->input->post('jumlah');
         $catatan = $this->input->post('catatan');
+        $alamat = $this->input->post('alamat');
 
         if ($kue == "blackforest") {
             $total = $jumlah * 200000;
@@ -30,7 +31,8 @@ class Admin extends CI_Controller{
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -38,13 +40,14 @@ class Admin extends CI_Controller{
         } elseif ($kue == "redvelvet") {
             $total = $jumlah * 190000;
            $data = array(
-                'nama_pemesan' => $nama,
+               'nama_pemesan' => $nama,
                 'total'=>$total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -52,13 +55,14 @@ class Admin extends CI_Controller{
         } elseif ($kue == "lapislegit") {
             $total = $jumlah * 150000;
            $data = array(
-                'nama_pemesan' => $nama,
+               'nama_pemesan' => $nama,
                 'total'=>$total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -66,13 +70,14 @@ class Admin extends CI_Controller{
         } elseif ($kue == "bikaambon") {
             $total = $jumlah * 125000;
            $data = array(
-                'nama_pemesan' => $nama,
+               'nama_pemesan' => $nama,
                 'total'=>$total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -80,13 +85,14 @@ class Admin extends CI_Controller{
         } elseif ($kue == "rotitawar") {
             $total = $jumlah * 40000;
            $data = array(
-                'nama_pemesan' => $nama,
+               'nama_pemesan' => $nama,
                 'total'=>$total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -94,13 +100,14 @@ class Admin extends CI_Controller{
         } elseif ($kue == "puding") {
             $total = $jumlah * 160000;
            $data = array(
-                'nama_pemesan' => $nama,
+               'nama_pemesan' => $nama,
                 'total'=>$total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
