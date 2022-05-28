@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 26, 2022 at 10:42 PM
+-- Generation Time: May 28, 2022 at 12:14 AM
 -- Server version: 10.5.12-MariaDB-0+deb11u1
 -- PHP Version: 7.4.28
 
@@ -36,6 +36,7 @@ CREATE TABLE `orders` (
   `total` int(50) NOT NULL,
   `pembayaran` int(30) DEFAULT NULL,
   `catatan` text NOT NULL,
+  `alamat` varchar(50) NOT NULL,
   `tanggal_pesanan` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -43,8 +44,10 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `nama_pemesan`, `nomer_hp`, `kue`, `jumlah`, `total`, `pembayaran`, `catatan`, `tanggal_pesanan`) VALUES
-(2, 'Muhammad Adi Saputro', '087989695', 'blackforest', 2, 400000, 400000, 'ynkts', '2021-12-17');
+INSERT INTO `orders` (`id`, `nama_pemesan`, `nomer_hp`, `kue`, `jumlah`, `total`, `pembayaran`, `catatan`, `alamat`, `tanggal_pesanan`) VALUES
+(2, 'Muhammad Adi Saputro', '087989695', 'blackforest', 2, 400000, 400000, 'ynkts', '', '2021-12-17'),
+(7, 'sx', '08284971', 'blackforest', 1, 200000, 230000, '', '', '2022-05-27'),
+(8, 'Azza', '08284971', 'rotitawar', 1, 40000, NULL, '', 'Jember', '2022-05-28');
 
 -- --------------------------------------------------------
 
@@ -89,7 +92,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
