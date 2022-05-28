@@ -9,9 +9,7 @@ class Order extends CI_Controller
         
         $this->load->model('Model');
         $this->load->helper('url');
-        if($this->session->userdata('status') != "login"){
-			redirect(base_url("login"));
-		}
+        
     }
 
     public function index()
@@ -35,6 +33,7 @@ class Order extends CI_Controller
         $nomer_hp = $this->input->post('nomer_hp');
         $kue = $this->input->post('kue');
         $jumlah = $this->input->post('jumlah');
+        $alamat = $this->input->post('alamat');
         $catatan = $this->input->post('catatan');
 
         if ($kue == "blackforest") {
@@ -46,7 +45,8 @@ class Order extends CI_Controller
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -60,7 +60,8 @@ class Order extends CI_Controller
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -74,7 +75,8 @@ class Order extends CI_Controller
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -88,7 +90,8 @@ class Order extends CI_Controller
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -102,7 +105,8 @@ class Order extends CI_Controller
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             $this->session->set_flashdata('insert','true');
@@ -116,7 +120,8 @@ class Order extends CI_Controller
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
                 'jumlah' => $jumlah,
-                'catatan' => $catatan
+                'catatan' => $catatan,
+                'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
             redirect(base_url('index.php/order/total?nama_pemesan='.$nama));
@@ -151,6 +156,9 @@ class Order extends CI_Controller
 
     public function data()
     {
+        if($this->session->userdata('status') != "login"){
+			redirect(base_url("login"));
+		}
         $data['pesanan'] = $this->Model->select('orders')->result();
         $this->load->view('admin/data-order',$data);    
     }

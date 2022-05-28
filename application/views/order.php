@@ -25,6 +25,8 @@ $this->load->view('header');
 							</select><br>
 							<label for="lname" style="margin-left:30px;">Jumlah Pesanan</label><br />
 							<input type="number" id="lname" name="jumlah" placeholder="Masukan Jumlah Pesanan"><br />
+							<label for="subject" style="margin-left:30px;">Alamat</label><br />
+							<textarea id="subject" name="alamat" placeholder="Write something.." style="height:200px"></textarea><br />
 							<label for="subject" style="margin-left:30px;">Catatan</label><br />
 							<textarea id="subject" name="catatan" placeholder="Write something.." style="height:200px"></textarea><br />
 
