@@ -16,13 +16,7 @@ $this->load->view('header');
 								<input type="text" id="fname" name="nomer_hp" readonly value="<?= $total->nomer_hp ?>" disabled><br />
 								<label for="fname" style="margin-left:30px;">Nama Kue</label><br />
 								<select disabled aria-readonly="true" name='kue'>
-									<option value="<?= $total->kue ?>">Black Forest</option>
-									<option value='blackforest'>Black Forest</option>
-									<option value='redvelvet'>Red Velvet</option>
-									<option value='lapislegit'>Lapis Legit</option>
-									<option value='bikaambon'>Bika Ambon</option>
-									<option value='rotitawar'>Roti Tawar</option>
-									<option value='puding'>Puding Cake Buah</option>
+									<option value="<?= $total->kue ?>"><?= $total->kue ?></option>
 								</select><br>
 								<label for="lname" style="margin-left:30px;">Jumlah Pesanan</label><br />
 								<input type="number" id="lname" name="jumlah" readonly disabled value="<?= $total->jumlah ?>"><br />

@@ -75,6 +75,7 @@
  <?php }?>
 <script>
   function hapus(id) {
+    // let idReplaced = id.replace
       let url = "<?php echo base_url('/order/hapus/+id+')?>";
       let final_url = url.replace("+id+",id);
       new swal({

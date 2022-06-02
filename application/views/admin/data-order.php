@@ -267,7 +267,7 @@
                           <td><?= $value->catatan ?></td>
                           <td><?= $value->alamat ?></td>
                           <td>
-                            <button class="btn btn-danger" onclick="hapus(<?= $value->id ?>)"><i class="fa fa-trash"></i></button>
+                            <button class="btn btn-danger" onclick='hapus("<?= $value->id ?>")'><i class="fa fa-trash"></i></button>
                             <button data-toggle="modal" data-target="#bayar_pesanan<?=$value->id?>" <?= $value->pembayaran != NULL ? "disabled " : " " ?> class="btn btn-info"><i class="fa fa-money-bill-wave"></i></button>
 
                           </td>
