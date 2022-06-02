@@ -14,7 +14,11 @@ class Order extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata('status') != "login" && $this->session->userdata('role') != "Member" ){
+			redirect(base_url("login"));
+		}
         $this->load->view('order');
+        
     }
 
     public function tambah_pesanan()

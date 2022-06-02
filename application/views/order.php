@@ -10,7 +10,7 @@ $this->load->view('header');
 					<div class="container">
 						<form action="<?php echo base_url('index.php/order/tambah_pesanan')?>" method="POST">
 							<label for="fname" style="margin-left:30px;">Nama Pemesan</label><br />
-							<input type="text" id="fname" name="nama" placeholder="Masukan Nama Anda.."><br />
+							<input type="text" id="fname" readonly value="<?php echo $this->session->userdata['nama']; ?>" name="nama" placeholder="Masukan Nama Anda.."><br />
 							<label for="fname" style="margin-left:30px;">No. Handphone</label><br />
 							<input type="text" id="fname" name="nomer_hp" placeholder="Masukan Nomor Handphone.."><br />
 							<label for="fname" style="margin-left:30px;">Nama Kue</label><br />

@@ -39,6 +39,7 @@
 							</ul>
 						</li>
 						<li><a href="<?php echo base_url('index.php/order') ?>">Order</a></li>
+						<li><a href="<?php echo base_url('index.php/login/logout') ?>"> Logout</a></li>
 						<div class="navigation-best-seller">
 							<a href=".">
 								<marquee behavior="scroll" class="best-seller">Best Seller</marquee>
