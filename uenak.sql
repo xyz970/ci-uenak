@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 28, 2022 at 12:14 AM
+-- Generation Time: Jun 02, 2022 at 10:30 PM
 -- Server version: 10.5.12-MariaDB-0+deb11u1
 -- PHP Version: 7.4.28
 
@@ -47,7 +47,8 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `nama_pemesan`, `nomer_hp`, `kue`, `jumlah`, `total`, `pembayaran`, `catatan`, `alamat`, `tanggal_pesanan`) VALUES
 (2, 'Muhammad Adi Saputro', '087989695', 'blackforest', 2, 400000, 400000, 'ynkts', '', '2021-12-17'),
 (7, 'sx', '08284971', 'blackforest', 1, 200000, 230000, '', '', '2022-05-27'),
-(8, 'Azza', '08284971', 'rotitawar', 1, 40000, NULL, '', 'Jember', '2022-05-28');
+(8, 'Azza', '08284971', 'rotitawar', 1, 40000, NULL, '', 'Jember', '2022-05-28'),
+(9, 'sdad', '798678', 'redvelvet', 2, 380000, 40000, '', 'Jember', '2022-05-28');
 
 -- --------------------------------------------------------
 
@@ -57,6 +58,7 @@ INSERT INTO `orders` (`id`, `nama_pemesan`, `nomer_hp`, `kue`, `jumlah`, `total`
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `role` enum('Admin','Member') NOT NULL DEFAULT 'Member',
   `username` varchar(30) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -65,8 +67,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'Adi', '12345');
+INSERT INTO `users` (`id`, `role`, `username`, `password`) VALUES
+(1, 'Admin', 'Adi', '12345'),
+(2, 'Member', 'Azza', '123');
 
 --
 -- Indexes for dumped tables
@@ -92,13 +95,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
