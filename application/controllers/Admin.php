@@ -1,11 +1,13 @@
 <?php
-class Admin extends CI_Controller{
-    function __construct(){
-		parent::__construct();
+class Admin extends CI_Controller
+{
+    function __construct()
+    {
+        parent::__construct();
         $this->load->model('Model');
 
-		$this->load->helper('url');
-	}
+        $this->load->helper('url');
+    }
     public function index()
     {
         $this->load->view('admin.dashboard');
@@ -13,10 +15,12 @@ class Admin extends CI_Controller{
     public function insertOrder()
     {
         $date = new \DateTime('today');
-    $tanggal = $date->format('Y-m-d');
-
+        $tanggal = $date->format('Y-m-d');
+        $newDate = $date->format('Ymd');
+        $random = rand(1, 10000);
         $nama = $this->input->post('nama');
         $nomer_hp = $this->input->post('nomer_hp');
+        $id = $random . "_" . $newDate . "_" . $nama;
         $kue = $this->input->post('kue');
         $jumlah = $this->input->post('jumlah');
         $catatan = $this->input->post('catatan');
@@ -25,8 +29,9 @@ class Admin extends CI_Controller{
         if ($kue == "blackforest") {
             $total = $jumlah * 200000;
             $data = array(
+                'id' => $id,
                 'nama_pemesan' => $nama,
-                'total'=>$total,
+                'total' => $total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
@@ -35,13 +40,14 @@ class Admin extends CI_Controller{
                 'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
-            $this->session->set_flashdata('insert','true');
+            $this->session->set_flashdata('insert', 'true');
             redirect(base_url('order/data'));
         } elseif ($kue == "redvelvet") {
             $total = $jumlah * 190000;
-           $data = array(
-               'nama_pemesan' => $nama,
-                'total'=>$total,
+            $data = array(
+                'id' => $id,
+                'nama_pemesan' => $nama,
+                'total' => $total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
@@ -50,13 +56,14 @@ class Admin extends CI_Controller{
                 'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
-            $this->session->set_flashdata('insert','true');
+            $this->session->set_flashdata('insert', 'true');
             redirect(base_url('order/data'));
         } elseif ($kue == "lapislegit") {
             $total = $jumlah * 150000;
-           $data = array(
-               'nama_pemesan' => $nama,
-                'total'=>$total,
+            $data = array(
+                'id' => $id,
+                'nama_pemesan' => $nama,
+                'total' => $total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
@@ -65,13 +72,14 @@ class Admin extends CI_Controller{
                 'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
-            $this->session->set_flashdata('insert','true');
+            $this->session->set_flashdata('insert', 'true');
             redirect(base_url('order/data'));
         } elseif ($kue == "bikaambon") {
             $total = $jumlah * 125000;
-           $data = array(
-               'nama_pemesan' => $nama,
-                'total'=>$total,
+            $data = array(
+                'id' => $id,
+                'nama_pemesan' => $nama,
+                'total' => $total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
@@ -80,13 +88,14 @@ class Admin extends CI_Controller{
                 'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
-            $this->session->set_flashdata('insert','true');
+            $this->session->set_flashdata('insert', 'true');
             redirect(base_url('order/data'));
         } elseif ($kue == "rotitawar") {
             $total = $jumlah * 40000;
-           $data = array(
-               'nama_pemesan' => $nama,
-                'total'=>$total,
+            $data = array(
+                'id' => $id,
+                'nama_pemesan' => $nama,
+                'total' => $total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
@@ -95,13 +104,14 @@ class Admin extends CI_Controller{
                 'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
-            $this->session->set_flashdata('insert','true');
+            $this->session->set_flashdata('insert', 'true');
             redirect(base_url('order/data'));
         } elseif ($kue == "puding") {
             $total = $jumlah * 160000;
-           $data = array(
-               'nama_pemesan' => $nama,
-                'total'=>$total,
+            $data = array(
+                'id' => $id,
+                'nama_pemesan' => $nama,
+                'total' => $total,
                 'nomer_hp' => $nomer_hp,
                 'kue' => $kue,
                 'tanggal_pesanan' => $tanggal,
@@ -110,10 +120,9 @@ class Admin extends CI_Controller{
                 'alamat' => $alamat
             );
             $this->Model->insert('orders', $data);
-            $this->session->set_flashdata('insert','true');
+            $this->session->set_flashdata('insert', 'true');
             redirect(base_url('order/data'));
         }
-        
     }
     public function konfirmasi_pembayaran()
     {
@@ -122,9 +131,9 @@ class Admin extends CI_Controller{
         // $nama = $this->input->get('nama_pemesan',TRUE);
         $condition = array('nama_pemesan' => $nama);
         $data = array('pembayaran' => $bayar);
-        $update = $this->Model->update($condition,'orders',$data);
+        $update = $this->Model->update($condition, 'orders', $data);
         // var_dump($nama);
-        $this->session->set_flashdata('bayar','true');
+        $this->session->set_flashdata('bayar', 'true');
         redirect(base_url('order/data'));
     }
 }

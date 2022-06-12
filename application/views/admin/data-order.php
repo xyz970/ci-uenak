@@ -194,7 +194,9 @@
               <div class="card">
                 <div class="card-header">
                   <button class="btn btn-primary" data-toggle="modal" data-target="#tambah_pesanan">Tambah Pesanan</button>
+                  <a href="<?=base_url('order/export')?>" class="btn btn-success">Export</a>
                 </div>
+                
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table id="dataorder" class="table table-bordered table-hover">
